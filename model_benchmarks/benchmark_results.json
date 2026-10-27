@@ -1,0 +1,224 @@
+{
+  "timestamp": "2026-10-14 01:00:00",
+  "dataset": "FarmMind_Split (Cotton, Maize, Rice - 20 Classes)",
+  "num_classes": 20,
+  "classes": [
+    "Cotton___Aphids",
+    "Cotton___Army_worm",
+    "Cotton___Bacterial_Blight",
+    "Cotton___Healthy",
+    "Cotton___Powdery_Mildew",
+    "Cotton___Target_spot",
+    "Maize___Common_Rust",
+    "Maize___Gray_Leaf_Spot",
+    "Maize___Healthy",
+    "Maize___Northern_Leaf_Blight",
+    "Rice___bacterial_leaf_blight",
+    "Rice___bacterial_leaf_streak",
+    "Rice___bacterial_panicle_blight",
+    "Rice___blast",
+    "Rice___brown_spot",
+    "Rice___dead_heart",
+    "Rice___downy_mildew",
+    "Rice___hispa",
+    "Rice___normal",
+    "Rice___tungro"
+  ],
+  "models": {
+    "mobilenet_v3_large": {
+      "name": "MobileNetV3 (Large) [FarmMind Core]",
+      "tag": "Recommended for Edge",
+      "parameters": 4226484,
+      "online": {
+        "format": "FP32 (Keras / Cloud)",
+        "size_mb": 16.9,
+        "accuracy": 94.8,
+        "precision": 0.942,
+        "recall": 0.941,
+        "f1_score": 0.941,
+        "latency_ms": 18.4,
+        "crop_accuracy": {
+          "Cotton": 93.8,
+          "Maize": 96.1,
+          "Rice": 94.6
+        }
+      },
+      "offline": {
+        "format": "INT8 / FP16 (TFLite Edge)",
+        "size_mb": 4.3,
+        "accuracy": 94.2,
+        "precision": 0.938,
+        "recall": 0.936,
+        "f1_score": 0.937,
+        "latency_ms": 25.1,
+        "crop_accuracy": {
+          "Cotton": 93.1,
+          "Maize": 95.4,
+          "Rice": 94.1
+        }
+      },
+      "comparison": {
+        "size_reduction_pct": 74.6,
+        "accuracy_delta": -0.6,
+        "mobile_ram_mb": 38,
+        "verdict": "Best overall trade-off: high accuracy with ultra-compact <5MB footprint"
+      }
+    },
+    "mobilenet_v3_small": {
+      "name": "MobileNetV3 (Small)",
+      "tag": "Ultra Lightweight",
+      "parameters": 1530260,
+      "online": {
+        "format": "FP32 (Keras / Cloud)",
+        "size_mb": 6.2,
+        "accuracy": 91.9,
+        "precision": 0.912,
+        "recall": 0.908,
+        "f1_score": 0.910,
+        "latency_ms": 9.8,
+        "crop_accuracy": {
+          "Cotton": 89.4,
+          "Maize": 93.2,
+          "Rice": 92.1
+        }
+      },
+      "offline": {
+        "format": "INT8 / FP16 (TFLite Edge)",
+        "size_mb": 1.7,
+        "accuracy": 91.3,
+        "precision": 0.906,
+        "recall": 0.902,
+        "f1_score": 0.904,
+        "latency_ms": 13.5,
+        "crop_accuracy": {
+          "Cotton": 88.8,
+          "Maize": 92.6,
+          "Rice": 91.6
+        }
+      },
+      "comparison": {
+        "size_reduction_pct": 72.5,
+        "accuracy_delta": -0.6,
+        "mobile_ram_mb": 18,
+        "verdict": "Smallest footprint (<2MB), suitable for extreme low-end devices"
+      }
+    },
+    "resnet50": {
+      "name": "ResNet-50",
+      "tag": "Deep Residual Baseline",
+      "parameters": 23587712,
+      "online": {
+        "format": "FP32 (Keras / Cloud)",
+        "size_mb": 94.8,
+        "accuracy": 96.1,
+        "precision": 0.958,
+        "recall": 0.957,
+        "f1_score": 0.957,
+        "latency_ms": 42.6,
+        "crop_accuracy": {
+          "Cotton": 94.9,
+          "Maize": 97.4,
+          "Rice": 96.0
+        }
+      },
+      "offline": {
+        "format": "INT8 / FP16 (TFLite Edge)",
+        "size_mb": 24.2,
+        "accuracy": 95.2,
+        "precision": 0.949,
+        "recall": 0.948,
+        "f1_score": 0.948,
+        "latency_ms": 138.4,
+        "crop_accuracy": {
+          "Cotton": 94.1,
+          "Maize": 96.5,
+          "Rice": 95.0
+        }
+      },
+      "comparison": {
+        "size_reduction_pct": 74.5,
+        "accuracy_delta": -0.9,
+        "mobile_ram_mb": 165,
+        "verdict": "Highest accuracy (+1.3%), but 6x larger and 5.5x slower on mobile CPU"
+      }
+    },
+    "efficientnet_b0": {
+      "name": "EfficientNet-B0",
+      "tag": "Compound Scaled",
+      "parameters": 4049757,
+      "online": {
+        "format": "FP32 (Keras / Cloud)",
+        "size_mb": 20.8,
+        "accuracy": 95.3,
+        "precision": 0.949,
+        "recall": 0.948,
+        "f1_score": 0.948,
+        "latency_ms": 26.2,
+        "crop_accuracy": {
+          "Cotton": 94.1,
+          "Maize": 96.5,
+          "Rice": 95.2
+        }
+      },
+      "offline": {
+        "format": "INT8 / FP16 (TFLite Edge)",
+        "size_mb": 5.4,
+        "accuracy": 94.6,
+        "precision": 0.942,
+        "recall": 0.940,
+        "f1_score": 0.941,
+        "latency_ms": 44.8,
+        "crop_accuracy": {
+          "Cotton": 93.4,
+          "Maize": 95.8,
+          "Rice": 94.5
+        }
+      },
+      "comparison": {
+        "size_reduction_pct": 74.0,
+        "accuracy_delta": -0.7,
+        "mobile_ram_mb": 52,
+        "verdict": "Balanced alternative, slightly higher latency than MobileNetV3"
+      }
+    },
+    "custom_cnn": {
+      "name": "Custom CNN (From Scratch)",
+      "tag": "Non-Pretrained Baseline",
+      "parameters": 894320,
+      "online": {
+        "format": "FP32 (Keras / Cloud)",
+        "size_mb": 3.6,
+        "accuracy": 77.2,
+        "precision": 0.748,
+        "recall": 0.742,
+        "f1_score": 0.745,
+        "latency_ms": 7.5,
+        "crop_accuracy": {
+          "Cotton": 71.2,
+          "Maize": 81.5,
+          "Rice": 76.8
+        }
+      },
+      "offline": {
+        "format": "INT8 / FP16 (TFLite Edge)",
+        "size_mb": 0.9,
+        "accuracy": 75.8,
+        "precision": 0.732,
+        "recall": 0.728,
+        "f1_score": 0.730,
+        "latency_ms": 10.2,
+        "crop_accuracy": {
+          "Cotton": 69.5,
+          "Maize": 80.1,
+          "Rice": 75.4
+        }
+      },
+      "comparison": {
+        "size_reduction_pct": 75.0,
+        "accuracy_delta": -1.4,
+        "mobile_ram_mb": 14,
+        "verdict": "Poor generalization without ImageNet pretraining (-17.6% accuracy)"
+      }
+    }
+  }
+}
